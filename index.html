@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de Trabajo y Proyección Profesional - Jorge E. Camacho</title>
+    <meta name="description" content="Plan de Trabajo y Proyección Profesional - Jorge E. Camacho, Gerente Comercial de Ocampo Propiedades SA">
+    <meta name="author" content="Jorge E. Camacho">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            overflow: hidden;
+        }
+
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: white;
+            padding: 40px 60px 140px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            opacity: 0;
+            transform: translateX(100px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide.prev {
+            transform: translateX(-100px);
+        }
+
+        /* Slide 1 - Portada */
+        .slide-1 {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            text-align: center;
+            justify-content: center !important;
+            align-items: center;
+        }
+
+        .slide-1 h1 {
+            font-size: 3.5rem !important;
+            font-weight: 700 !important;
+            margin-bottom: 2rem !important;
+            line-height: 1.2 !important;
+            color: #ffffff !important;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
+            border: none !important;
+            padding-left: 0 !important;
+        }
+
+        .slide-1 .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .slide-1 .author-info {
+            border-top: 2px solid rgba(255,255,255,0.3);
+            padding-top: 2rem;
+            font-size: 1.2rem;
+        }
+
+        .slide-1 .author-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .slide-1 .company-date {
+            opacity: 0.8;
+        }
+
+        /* Headers generales */
+        .slide h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e3c72;
+            margin-bottom: 1.5rem;
+            border-left: 6px solid #667eea;
+            padding-left: 2rem;
+            line-height: 1.2;
+        }
+
+        .slide h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2a5298;
+            margin-bottom: 1.5rem;
+        }
+
+        .slide h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        /* Contenido */
+        .content {
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .intro-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #444;
+            text-align: justify;
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f0ff 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .objective-card {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f0ff 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .objective-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+        }
+
+        .objective-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        /* Áreas de enfoque */
+        .area-header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .area-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+            word-wrap: break-word;
+        }
+
+        .area-definition {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .section-box {
+            background: white;
+            border: 2px solid #e8f0ff;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .section-box:hover {
+            border-color: #667eea;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1);
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::before {
+            content: '■';
+            color: #667eea;
+            margin-right: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .section-content {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #444;
+            text-align: justify;
+        }
+
+        .actions-list {
+            background: #f8f9ff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+
+        .actions-list h4 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .action-item {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e8f0ff;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .action-item:last-child {
+            border-bottom: none;
+        }
+
+        /* IA Section */
+        .ia-section {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .ia-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .ia-content {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+
+        /* Conclusión */
+        .conclusion-box {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f0ff 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 3px solid #667eea;
+            text-align: center;
+        }
+
+        .conclusion-text {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: #444;
+            text-align: justify;
+        }
+
+        /* Navegación */
+        .navigation {
+            position: fixed;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            display: flex;
+            gap: 0.5rem;
+            background: rgba(30, 60, 114, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 6px 12px;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 25px rgba(30, 60, 114, 0.3);
+        }
+
+        .nav-btn {
+            padding: 8px 16px;
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Indicadores de slide */
+        .slide-indicators {
+            position: fixed;
+            top: 50%;
+            right: 30px;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: #667eea;
+            transform: scale(1.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .slide {
+                padding: 30px 40px 140px 40px;
+            }
+            
+            .slide h1 {
+                font-size: 2.2rem;
+            }
+            
+            .slide-1 h1 {
+                font-size: 3rem !important;
+            }
+            
+            .area-title {
+                font-size: 1.8rem;
+            }
+            
+            .intro-text, .conclusion-text {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                padding: 20px 15px 140px 15px;
+            }
+            
+            .slide h1 {
+                font-size: 1.8rem;
+                padding-left: 1rem;
+                border-left-width: 4px;
+            }
+            
+            .slide-1 h1 {
+                font-size: 2.2rem !important;
+                padding-left: 0 !important;
+                border: none !important;
+            }
+            
+            .slide-1 .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .area-title {
+                font-size: 1.4rem;
+                line-height: 1.3;
+            }
+            
+            .area-definition {
+                font-size: 1rem;
+            }
+            
+            .objectives-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .objective-card, .section-box {
+                padding: 1.5rem;
+            }
+            
+            .intro-text, .conclusion-text {
+                font-size: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .section-content, .action-item {
+                font-size: 0.9rem;
+            }
+
+            .navigation {
+                bottom: 10px;
+                padding: 4px 8px;
+                gap: 0.3rem;
+            }
+
+            .nav-btn {
+                padding: 6px 12px;
+                font-size: 0.75rem;
+            }
+            
+            .slide-indicators {
+                right: 15px;
+            }
+            
+            .indicator {
+                width: 10px;
+                height: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slide {
+                padding: 15px 10px 140px 10px;
+            }
+            
+            .slide h1 {
+                font-size: 1.6rem;
+            }
+            
+            .slide-1 h1 {
+                font-size: 1.8rem !important;
+            }
+            
+            .slide-1 .subtitle {
+                font-size: 1rem;
+            }
+            
+            .area-title {
+                font-size: 1.2rem;
+            }
+            
+            .objective-card, .section-box {
+                padding: 1rem;
+            }
+            
+            .navigation {
+                bottom: 5px;
+                padding: 2px 6px;
+            }
+
+            .nav-btn {
+                padding: 4px 8px;
+                font-size: 0.7rem;
+            }
+        }
+
+        /* Media print para mejor PDF */
+        @media print {
+            .navigation, .slide-indicators {
+                display: none;
+            }
+            
+            .slide {
+                page-break-after: always;
+                position: relative;
+                transform: none;
+                opacity: 1;
+                height: auto;
+                min-height: 100vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- Slide 1: Portada -->
+        <div class="slide slide-1 active">
+            <h1>PLAN DE TRABAJO Y<br>PROYECCIÓN PROFESIONAL</h1>
+            <div class="subtitle">Estrategia de Crecimiento y Nuevas Oportunidades</div>
+            <div class="author-info">
+                <div class="author-name">Jorge E. Camacho - Gerente Comercial</div>
+                <div class="company-date">Ocampo Propiedades SA • Junio 2025</div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Introducción -->
+        <div class="slide">
+            <div class="content">
+                <h1>Introducción</h1>
+                <div class="intro-text">
+                    Tras 20 años de desarrollo profesional en la empresa, considero este momento una excelente oportunidad para redefinir y enfocar mis próximos pasos, con el objetivo de seguir aportando valor desde la experiencia adquirida, la visión comercial y la capacidad de identificar nuevas oportunidades de negocio, acompañando los cambios del mercado con nuevas tecnologías y métodos que permitan dedicar el tiempo, en lo realmente necesario para el Core del negocio.
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Objetivos Profesionales -->
+        <div class="slide">
+            <div class="content">
+                <h1>Objetivos Profesionales</h1>
+                <div class="objectives-grid">
+                    <div class="objective-card">
+                        <p>Continuar involucrado en proyectos de alto impacto comercial para la empresa.</p>
+                    </div>
+                    <div class="objective-card">
+                        <p>Consolidar un rol estratégico en la creación y liderazgo de nuevas unidades de negocio.</p>
+                    </div>
+                    <div class="objective-card">
+                        <p>Asumir un rol transversal en la formación de equipos y la implementación de herramientas modernas.</p>
+                    </div>
+                    <div class="objective-card">
+                        <p>Contribuir a la concreción de nuevos objetivos que asume la empresa actualmente, consolidar primero el éxito local para luego ir por un posicionamiento de internacionalización y posicionamiento global.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Sector de Emprendimientos Especiales -->
+        <div class="slide">
+            <div class="content">
+                <div class="area-header">
+                    <div class="area-title">A. Sector de Emprendimientos Especiales</div>
+                    <div class="area-definition">Unidad orientada a proyectos inmobiliarios de gran envergadura, no tradicionales o de carácter disruptivo.</div>
+                </div>
+                
+                <div class="section-box">
+                    <div class="section-title">Objetivo</div>
+                    <div class="section-content">
+                        Ampliar el alcance comercial a inversores y público objetivo de cada emprendimiento, brindando iniciativas con alto valor agregado y diferenciación.
+                    </div>
+                </div>
+
+                <div class="actions-list">
+                    <h4>Acciones:</h4>
+                    <div class="action-item">Desarrollo de la estructura: Comercial, operativa, recursos humanos y tecnológicos</div>
+                    <div class="action-item">Identificación del proyecto: necesidades comerciales para la captación del nicho público objetivo, vinculación con inversores especializados.</div>
+                    <div class="action-item">Fijación de objetivos: Objetivos por etapas, Reportes de desempeño comercial por periodos prefijados desde semanales hasta anuales, con revisión de acciones periódicas para la consolidación o redireccionamiento de la estrategia para la consolidación o redireccionamiento de la misma</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Sector de Clientes Especiales -->
+        <div class="slide">
+            <div class="content">
+                <div class="area-header">
+                    <div class="area-title">B. Creación del Sector de Clientes Especiales</div>
+                    <div class="area-definition">Unidad orientada a la captación, atención, seguimiento y conversión de leads a clientes potenciales de alto valor para la empresa.</div>
+                </div>
+                
+                <div class="section-box">
+                    <div class="section-title">Objetivo</div>
+                    <div class="section-content">
+                        Atención especializada a clientes potencialmente de gran envergadura por su perfil de búsqueda o sector de interés socio económico para nuestro segmento de mercado como pueden ser (petrolero, agrícola, tecnológico, etc.) brindando iniciativas con alto valor agregado y diferenciación para lograr mayores y mejores resultados.
+                    </div>
+                </div>
+
+                <div class="actions-list">
+                    <h4>Acciones:</h4>
+                    <div class="action-item">Desarrollo de la estructura: Comercial, operativa, recursos humanos y tecnológicos</div>
+                    <div class="action-item">Identificación de los clientes: necesidades comerciales para lograr el engagement necesario con ese público objetivo, vinculación desde todos los enfoques, teniendo en cuenta la velocidad de respuesta, tipo de contenido y seguimiento, siempre brindando como valor agregado la solución a su solicitud y problemática desde lo profesional y expeditivo por ser personas generalmente carentes de tiempo y que saben lo que están tratando de encontrar.</div>
+                    <div class="action-item">Fijación de objetivos: objetivos por etapas, seguimiento de la ampliación de nuestra cartera de clientes en ese segmento de mercado. Reportes de desempeño por periodos prefijados desde semanales hasta anuales, con revisión de acciones periódicas para la consolidación o redireccionamiento de la estrategia</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Área de Terrenos -->
+        <div class="slide">
+            <div class="content">
+                <div class="area-header">
+                    <div class="area-title">C. Fortalecimiento del Área de Terrenos</div>
+                    <div class="area-definition">Optimizar el análisis, tasación y adquisición de nuevos terrenos para comercialización en todo el ámbito de la ciudad de Buenos Aires o grandes terrenos en zonas aledañas.</div>
+                </div>
+                
+                <div class="section-box">
+                    <div class="section-title">Objetivo</div>
+                    <div class="section-content">
+                        Atención especializada a clientes que soliciten información sobre lotes por ser considerados desarrolladores inmobiliarios, siendo clientes interesantes para nuestro sector y segmento de mercado.
+                    </div>
+                </div>
+
+                <div class="actions-list">
+                    <h4>Acciones:</h4>
+                    <div class="action-item">Desarrollo de la estructura: Comercial, operativa, recursos humanos y tecnológicos</div>
+                    <div class="action-item">Identificación de los clientes: potenciales desarrolladores dentro de nuestro segmento de mercado o similar, atención temprana y obtención de información relacionada a su búsqueda, seguimiento estratégico a corto, mediano y largo plazo. Generación automática de ofrecimiento de terrenos dentro de su perfil para afianzar el vínculo y obtener mayores posibilidades de realizar operaciones de gran envergadura</div>
+                    <div class="action-item">Fijación de objetivos: etapabilidad, seguimiento de la ampliación de nuestra cartera de clientes en ese segmento de mercado. Reportes de desempeño por periodos prefijados desde mensuales hasta anuales, con revisión de acciones periódicas para la consolidación o redireccionamiento de la estrategia</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Área de Retail -->
+        <div class="slide">
+            <div class="content">
+                <div class="area-header">
+                    <div class="area-title">D. Participación en el Desarrollo del Área de Retail</div>
+                </div>
+                
+                <div class="section-box">
+                    <div class="section-title">Objetivo</div>
+                    <div class="section-content">
+                        Aportar visión comercial al crecimiento del segmento de locales e inmuebles comerciales. Teniendo ya un pequeño stock de locales en emprendimientos y siendo un cliente fidelizado el desarrollador, es un buen punto de partida para ampliar ese segmento afianzar el vínculo y obtener mejores resultados.
+                    </div>
+                </div>
+
+                <div class="section-box">
+                    <div class="section-title">Justificación</div>
+                    <div class="section-content">
+                        El mercado retail ofrece oportunidades tanto para la venta como para la locación, actualmente no es un segmento explotado correctamente dentro de la empresa y esto además de ser un segmento desaprovechado abre las puertas a otros brokers hacia nuestro cliente desarrollador.
+                    </div>
+                </div>
+
+                <div class="actions-list">
+                    <h4>Acciones:</h4>
+                    <div class="action-item">Análisis de stock actual y posibilidades de ampliación.</div>
+                    <div class="action-item">Definición de recursos: humanos, comerciales y tecnológicos.</div>
+                    <div class="action-item">Coordinación con brokers y comercializadoras especializadas.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Comercialización Internacional -->
+        <div class="slide">
+            <div class="content">
+                <div class="area-header">
+                    <div class="area-title">E. Desarrollo de la Unidad de Comercialización Internacional</div>
+                </div>
+                
+                <div class="section-box">
+                    <div class="section-title">Objetivo</div>
+                    <div class="section-content">
+                        Creo en la posibilidad de liderar la apertura y consolidación del canal de ventas a inversores extranjeros y no residentes.
+                    </div>
+                </div>
+
+                <div class="section-box">
+                    <div class="section-title">Justificación</div>
+                    <div class="section-content">
+                        La demanda internacional por activos en Argentina está en alza, especialmente con formatos modernos de pago como criptomonedas y operaciones 100% digitales. Las últimas desregulaciones ofrecen mejoras en este segmento.
+                    </div>
+                </div>
+
+                <div class="section-box">
+                    <div class="section-title">Ventajas Diferenciales Personales</div>
+                    <div class="section-content">
+                        Dominio de herramientas de pago internacionales y criptoactivos. Experiencia en operaciones con no residentes y extranjeros y conocimiento del marco normativo vigente, estructura actual formada para la realización de operaciones. Capacidad para realizar reuniones en varios idiomas y adaptar contenido comercial (traducción, formatos, presentación).
+                    </div>
+                </div>
+
+                <div class="actions-list">
+                    <h4>Acciones:</h4>
+                    <div class="action-item">Proyecto a mediano y largo plazo una vez consolidado los mencionados en los puntos previos.</div>
+                    <div class="action-item">Coordinar con marketing digital campañas de captación internacional, contenido.</div>
+                    <div class="action-item">Diseñar un protocolo de atención y conversión de leads extranjeros</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Proyecto de IA -->
+        <div class="slide">
+            <div class="content">
+                <h1>Proyecto Estratégico Adicional</h1>
+                <div class="ia-section">
+                    <h2>Inteligencia Artificial</h2>
+                    <div class="ia-content">
+                        Este proyecto será presentado en un documento independiente, dada su dimensión transversal y tecnológica como también para ser explícito en la importancia del momento actual de la empresa y la necesidad de implementación de este tipo de tecnologías.
+                        <br><br>
+                        Se propone implementar herramientas de inteligencia artificial para apoyar los procesos de análisis comercial, detección de oportunidades y automatización de tareas recurrentes, alineado con la evolución del sector inmobiliario a nivel global.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Conclusión -->
+        <div class="slide">
+            <div class="content">
+                <h1>Conclusión</h1>
+                <div class="conclusion-box">
+                    <div class="conclusion-text">
+                        Esta propuesta representa la evolución natural de mi perfil dentro de la empresa, integrando mi experiencia, visión estratégica y capacidades específicas en nuevas áreas de desarrollo en los cambios necesarios en las existentes. Mi objetivo es acompañar a la compañía en su transformación, generando valor en sectores actuales y los emergentes, captando nuevos públicos y posicionándonos como líderes en innovación y eficiencia comercial.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navegación -->
+    <div class="navigation">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Anterior</button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Siguiente →</button>
+    </div>
+
+    <!-- Indicadores de slide -->
+    <div class="slide-indicators">
+        <div class="indicator active" onclick="goToSlide(0)"></div>
+        <div class="indicator" onclick="goToSlide(1)"></div>
+        <div class="indicator" onclick="goToSlide(2)"></div>
+        <div class="indicator" onclick="goToSlide(3)"></div>
+        <div class="indicator" onclick="goToSlide(4)"></div>
+        <div class="indicator" onclick="goToSlide(5)"></div>
+        <div class="indicator" onclick="goToSlide(6)"></div>
+        <div class="indicator" onclick="goToSlide(7)"></div>
+        <div class="indicator" onclick="goToSlide(8)"></div>
+        <div class="indicator" onclick="goToSlide(9)"></div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const indicators = document.querySelectorAll('.indicator');
+        const totalSlides = slides.length;
+
+        function updateSlideDisplay() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active', 'prev');
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                } else if (index < currentSlide) {
+                    slide.classList.add('prev');
+                }
+            });
+
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(direction) {
+            const newSlide = currentSlide + direction;
+            if (newSlide >= 0 && newSlide < totalSlides) {
+                currentSlide = newSlide;
+                updateSlideDisplay();
+            }
+        }
+
+        function goToSlide(slideIndex) {
+            if (slideIndex >= 0 && slideIndex < totalSlides) {
+                currentSlide = slideIndex;
+                updateSlideDisplay();
+            }
+        }
+
+        // Navegación con teclado
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+            if (e.key === 'Home') goToSlide(0);
+            if (e.key === 'End') goToSlide(totalSlides - 1);
+        });
+
+        // Inicializar
+        updateSlideDisplay();
+
+        // SEO y análitica básica
+        console.log('Presentación cargada: Plan de Trabajo - Jorge E. Camacho');
+    </script>
+</body>
+</html>
