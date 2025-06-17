@@ -1,0 +1,26 @@
+# Archivos temporales del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Archivos de desarrollo local
+node_modules/
+*.log
+.env
+
+# Archivos de respaldo
+*.bak
+*.backup
+*~
+
+# Archivos de Windows
+desktop.ini
+
+# Archivos de macOS
+.AppleDouble
+.LSOverride
